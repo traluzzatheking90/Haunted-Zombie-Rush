@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BridgeObj.cs" />
+     <Compile Include="Assets\Scripts\Rock.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>

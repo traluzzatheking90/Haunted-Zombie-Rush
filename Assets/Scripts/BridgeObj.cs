@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class BridgeObj : MonoBehaviour {
 
-	private const int deltaTimeMultiply = 20;
+	[SerializeField] private float objectSpeed = 4;  // SerializeField allow us to modify a varible directly in the Inspector of the object
+	private float resetPosition = 11.94f;
+	private float restartPosition = -109.41f;
+
 
 	// Use this for initialization
 	void Start () {
@@ -13,6 +16,12 @@ public class BridgeObj : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate(Vector3.left * (deltaTimeMultiply * Time.deltaTime));
+		transform.Translate(Vector3.right * (objectSpeed * Time.deltaTime));
+
+		if(transform.localPosition.x >= resetPosition){
+			Vector3 newPos = new Vector3(restartPosition, transform.position.y, transform.position.z);
+			transform.position = newPos;
+
+		}
 	}
 }
