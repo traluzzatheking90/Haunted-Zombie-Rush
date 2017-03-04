@@ -9,7 +9,7 @@ public class Rock : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		StartCoroutine (Move(bottomPosition));
 	}
 	
 	// View Coroutine : https://docs.unity3d.com/ScriptReference/Coroutine.html
@@ -19,10 +19,16 @@ public class Rock : MonoBehaviour {
 		while(Mathf.Abs((target - transform.localPosition).y) > 0.20f){
 
 			Vector3 direction = target.y == topPosition.y ? Vector3.up :Vector3.down;
-			transform.localPosition += direction * Time.deltaTime;
+			transform.localPosition += direction * Time.deltaTime * 5;
 
 			yield return null;
 
 		}
+
+		Debug.Log ("Reached the target");
+		yield return new WaitForSeconds(0.3f);
+
+		Vector3 newDirection = target.y == topPosition.y ? bottomPosition : topPosition;
+		StartCoroutine (Move(newDirection));
 	}
 }
