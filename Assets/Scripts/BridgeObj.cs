@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BridgeObj : MonoBehaviour {
 
 	[SerializeField] private float objectSpeed = 4;  // SerializeField allow us to modify a varible directly in the Inspector of the object
-	private float resetPosition = 11.94f;
-	private float restartPosition = -109.41f;
+	[SerializeField] private float resetPosition = 11.94f;
+	[SerializeField] private float startPosition = -109.41f;
 
 
 	// Use this for initialization
@@ -15,11 +13,11 @@ public class BridgeObj : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected virtual void Update () {
 		transform.Translate(Vector3.right * (objectSpeed * Time.deltaTime));
 
 		if(transform.localPosition.x >= resetPosition){
-			Vector3 newPos = new Vector3(restartPosition, transform.position.y, transform.position.z);
+			Vector3 newPos = new Vector3(startPosition, transform.position.y, transform.position.z);
 			transform.position = newPos;
 
 		}

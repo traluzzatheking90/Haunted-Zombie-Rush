@@ -1,15 +1,21 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Rock : MonoBehaviour {
+public class Rock : BridgeObj {
 
 	[SerializeField] Vector3 topPosition;
 	[SerializeField] Vector3 bottomPosition;
+	[SerializeField] float speed;
+	private float frameTime = 0.20f;
 
 	// Use this for initialization
 	void Start () {
 		StartCoroutine (Move(bottomPosition));
+	}
+
+	/// Update is called every frame, if the MonoBehaviour is enabled.
+	protected override void  Update(){
+		base.Update();
 	}
 	
 	// View Coroutine : https://docs.unity3d.com/ScriptReference/Coroutine.html
@@ -19,7 +25,7 @@ public class Rock : MonoBehaviour {
 		while(Mathf.Abs((target - transform.localPosition).y) > 0.20f){
 
 			Vector3 direction = target.y == topPosition.y ? Vector3.up :Vector3.down;
-			transform.localPosition += direction * Time.deltaTime * 5;
+			transform.localPosition += direction * Time.deltaTime * speed;
 
 			yield return null;
 
