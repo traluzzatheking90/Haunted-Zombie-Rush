@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	[SerializeField ]private Vector2 jumpForceVector = new Vector2(0,100f);
+	[SerializeField] private Vector2 jumpForceVector = new Vector2(0,100f);
+	[SerializeField] private AudioClip sfxJump;  // A sound clip to play in audio AudioSource
+	private AudioSource audioSource; // The player -> we recive the  sound in a Listener in the camera
 	private Animator anim;
 	private Rigidbody rigidBody;
 	private bool jump = false;
@@ -14,12 +16,14 @@ public class Player : MonoBehaviour {
 	void Start () {
 		anim = GetComponent<Animator>();  //searchs the component in the object
 		rigidBody = GetComponent<Rigidbody>();
+		audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown(0)){ //left click
 			anim.Play("Jump");
+			audioSource.PlayOneShot(sfxJump);
 			rigidBody.useGravity = true;
 			jump = true;
 
