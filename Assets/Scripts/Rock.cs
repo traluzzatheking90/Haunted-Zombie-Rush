@@ -28,10 +28,7 @@ public class Rock : BridgeObj {
 			transform.localPosition += direction * Time.deltaTime * speed;
 
 			yield return null;
-
 		}
-
-		Debug.Log ("Reached the target");
 		yield return new WaitForSeconds(0.3f);
 
 		Vector3 newDirection = target.y == topPosition.y ? bottomPosition : topPosition;
