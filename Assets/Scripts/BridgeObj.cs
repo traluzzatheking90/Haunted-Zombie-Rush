@@ -14,12 +14,14 @@ public class BridgeObj : MonoBehaviour {
 	
 	// Update is called once per frame
 	protected virtual void Update () {
-		transform.Translate(Vector3.right * (objectSpeed * Time.deltaTime));
+		if (GameManager.instance.GameOver != true){
+			transform.Translate(Vector3.right * (objectSpeed * Time.deltaTime));
 
-		if(transform.localPosition.x >= resetPosition){
-			Vector3 newPos = new Vector3(startPosition, transform.position.y, transform.position.z);
-			transform.position = newPos;
+			if(transform.localPosition.x >= resetPosition){
+				Vector3 newPos = new Vector3(startPosition, transform.position.y, transform.position.z);
+				transform.position = newPos;
 
+			}
 		}
 	}
 }

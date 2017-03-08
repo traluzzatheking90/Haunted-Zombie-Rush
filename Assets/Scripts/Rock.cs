@@ -15,7 +15,10 @@ public class Rock : BridgeObj {
 
 	/// Update is called every frame, if the MonoBehaviour is enabled.
 	protected override void  Update(){
-		base.Update();
+
+		if (GameManager.instance.PlayerActive){
+			base.Update();
+		}
 	}
 	
 	// View Coroutine : https://docs.unity3d.com/ScriptReference/Coroutine.html
