@@ -1,0 +1,6 @@
+TODO
+
+ . Incorporate the ground. When i touch the groud the zombie should die
+ . Cretate Gameover screen when game ends / allow the replay
+ . Add coin/credit (portal image) i can use IMG Arcade PauseBox to show the coins
+ . Rotate the rock around the center

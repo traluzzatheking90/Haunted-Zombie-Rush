@@ -31,7 +31,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (GameManager.instance.GameOver != true){
+		if (GameManager.instance.GameOver != true && GameManager.instance.GameStarted){
 			if (Input.GetMouseButtonDown(0)){ //left click
 				GameManager.instance.PlayerStartedGame();
 				anim.Play("Jump");
