@@ -4,3 +4,4 @@ TODO
  . Cretate Gameover screen when game ends / allow the replay
  . Add coin/credit (portal image) i can use IMG Arcade PauseBox to show the coins
  . Rotate the rock around the center
+ . Limit the vertical ascension
